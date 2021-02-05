@@ -1,0 +1,15 @@
+/Users/meng.zhang/payslip-meng/Payslip/bin/Debug/net5.0/Payslip.deps.json
+/Users/meng.zhang/payslip-meng/Payslip/bin/Debug/net5.0/Payslip.runtimeconfig.json
+/Users/meng.zhang/payslip-meng/Payslip/bin/Debug/net5.0/Payslip.runtimeconfig.dev.json
+/Users/meng.zhang/payslip-meng/Payslip/bin/Debug/net5.0/Payslip.dll
+/Users/meng.zhang/payslip-meng/Payslip/bin/Debug/net5.0/ref/Payslip.dll
+/Users/meng.zhang/payslip-meng/Payslip/bin/Debug/net5.0/Payslip.pdb
+/Users/meng.zhang/payslip-meng/Payslip/obj/Debug/net5.0/Payslip.csprojAssemblyReference.cache
+/Users/meng.zhang/payslip-meng/Payslip/obj/Debug/net5.0/Payslip.GeneratedMSBuildEditorConfig.editorconfig
+/Users/meng.zhang/payslip-meng/Payslip/obj/Debug/net5.0/Payslip.AssemblyInfoInputs.cache
+/Users/meng.zhang/payslip-meng/Payslip/obj/Debug/net5.0/Payslip.AssemblyInfo.cs
+/Users/meng.zhang/payslip-meng/Payslip/obj/Debug/net5.0/Payslip.csproj.CoreCompileInputs.cache
+/Users/meng.zhang/payslip-meng/Payslip/obj/Debug/net5.0/Payslip.dll
+/Users/meng.zhang/payslip-meng/Payslip/obj/Debug/net5.0/ref/Payslip.dll
+/Users/meng.zhang/payslip-meng/Payslip/obj/Debug/net5.0/Payslip.pdb
+/Users/meng.zhang/payslip-meng/Payslip/obj/Debug/net5.0/Payslip.genruntimeconfig.cache
