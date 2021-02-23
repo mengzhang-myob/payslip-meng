@@ -1,6 +1,6 @@
 # payslip-meng
 
-## To run the programm:
+## To run the program:
 
   1. Clone the project.
   2. Under the project folder run: cd /YourLocalPath/payslip-meng/Payslip
