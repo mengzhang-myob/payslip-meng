@@ -40,11 +40,9 @@ namespace Payslip
                         string inputSalary;
                         double inputValue;
                         inputSalary = Console.ReadLine();
-                        Console.WriteLine(regexSalary.IsMatch(inputSalary));
                         while (regexSalary.IsMatch(inputSalary) == false){
                             Console.WriteLine("Wrong format, the annual salary should be numbers only, please re-enter your annual salary:");
                             inputSalary = Console.ReadLine();
-                            Console.WriteLine(regexSalary.IsMatch(inputSalary));
                         }
                         inputValue = Convert.ToDouble(inputSalary);
                         payDetails.setGrossIncome (inputValue);
@@ -64,7 +62,6 @@ namespace Payslip
                     while (regexSalary.IsMatch(inputRate) == false){
                         Console.WriteLine("Wrong format, the super rate should be numbers only, please re-enter your super rate:");
                         inputRate = Console.ReadLine();
-                        Console.WriteLine(regexSalary.IsMatch(inputRate));
                     }
                     inputValue = Convert.ToDouble(inputRate);
                     payDetails.setSuper(inputValue);
