@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Payslip
 {
@@ -17,28 +18,60 @@ namespace Payslip
             userInput("print", payDetails);
         }
         static void userInput (string inputType, PayDetails payDetails){
+            Regex regexSalary = new Regex(@"^-?[0-9][0-9\.]+$"); //Regex to tolerate decimal point
+            // Regex regexSuper = new Regex("^([1-9]\d?|100)$");
+            // Regex regexDate = new Regex(@"^\d$");
             if (inputType == "name"){
-                Console.WriteLine("Please input your name:");
-                string firstName = Console.ReadLine();
-                Console.WriteLine("Please input your surname:");
-                string surName = Console.ReadLine();
-                payDetails.setName (firstName, surName);
+                try {
+                    Console.WriteLine("Please input your name:");
+                    string firstName = Console.ReadLine();
+                    Console.WriteLine("Please input your surname:");
+                    string surName = Console.ReadLine();
+                    payDetails.setName (firstName, surName);
+                }
+                catch(Exception e) {
+                    Console.WriteLine("The name input is invalid" + "\n" + e.Message);
+                }
+
             }
             else if (inputType == "annualSalary"){
-                try {
                     Console.WriteLine("Please enter your annual salary:");
-                    double inputValue = Convert.ToDouble(Console.ReadLine());
-                    payDetails.setGrossIncome (inputValue);
-                    payDetails.setIncomeTax (inputValue);
-                    payDetails.setNetIncome ();
-                } catch (FormatException e) {
-                    throw e;
+                    try {
+                        string inputSalary;
+                        double inputValue;
+                        inputSalary = Console.ReadLine();
+                        Console.WriteLine(regexSalary.IsMatch(inputSalary));
+                        while (regexSalary.IsMatch(inputSalary) == false){
+                            Console.WriteLine("Wrong format, the annual salary should be numbers only, please re-enter your annual salary:");
+                            inputSalary = Console.ReadLine();
+                            Console.WriteLine(regexSalary.IsMatch(inputSalary));
+                        }
+                        inputValue = Convert.ToDouble(inputSalary);
+                        payDetails.setGrossIncome (inputValue);
+                        payDetails.setIncomeTax (inputValue);
+                        payDetails.setNetIncome ();
+                    }
+                    catch (Exception e) {
+                        throw e;
                 }
             }
             else if (inputType == "superRate"){
                 Console.WriteLine("Please enter your super rate:");
-                double inputValue = Convert.ToDouble(Console.ReadLine());
-                payDetails.setSuper(inputValue);
+                try {
+                    string inputRate;
+                    double inputValue;
+                    inputRate = Console.ReadLine();
+                    while (regexSalary.IsMatch(inputRate) == false){
+                        Console.WriteLine("Wrong format, the super rate should be numbers only, please re-enter your super rate:");
+                        inputRate = Console.ReadLine();
+                        Console.WriteLine(regexSalary.IsMatch(inputRate));
+                    }
+                    inputValue = Convert.ToDouble(inputRate);
+                    payDetails.setSuper(inputValue);
+                }
+                    catch (Exception e) {
+                        throw e;
+                }
             }
             else if (inputType == "pDate"){
                 Console.WriteLine("Please enter your payment start date:");
