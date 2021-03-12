@@ -27,7 +27,7 @@ namespace Payslip
                     string firstName = Console.ReadLine();
                     Console.WriteLine("Please input your surname:");
                     string surName = Console.ReadLine();
-                    payDetails.SetName (firstName, surName); //Consider to decouple
+                    payDetails.Name = firstName + " " + surName; //Consider to decouple
                 }
                 catch(Exception e) {
                     Console.WriteLine("The name input is invalid" + "\n" + e.Message);
@@ -71,7 +71,7 @@ namespace Payslip
                 string pStartDate = Console.ReadLine();
                 Console.WriteLine("Please enter your payment end date:");
                 string pEndDate = Console.ReadLine();
-                payDetails.SetPayPeriod (pStartDate, pEndDate);
+                payDetails.PayPeriod = pStartDate + "-" + pEndDate;
             }
             else if (inputType == "print") {
                 payDetails.PrintPayDetails();
@@ -79,8 +79,6 @@ namespace Payslip
         }
     }
     public class PayDetails {
-        private string _name;
-        private string _payPeriod;
         private double _grossIncome;
         private double _incomeTax;
         private double _netIncome;
@@ -88,12 +86,10 @@ namespace Payslip
         private static List<double> taxRate = new List<double> { 0.19, 0.325, 0.37, 0.45 };
         private static List<int> taxThreshold = new List<int> { 18200, 37000, 87000, 180000 };
         private static List<int> taxBracket = new List<int> {0, 3572, 19822, 54232};
-        public void SetName (string firstName, string surName) {
-            this._name = firstName + " " + surName;
-        }
-        public void SetPayPeriod (string startDate, string endDate){
-            this._payPeriod = startDate + " - " + endDate;
-        }
+        public string Name { get; set; }
+
+        public string PayPeriod { get; set; }
+
         public void SetGrossIncome (double annualSalary) {
             this._grossIncome = (int)Math.Floor(annualSalary/12);
         }
@@ -123,8 +119,8 @@ namespace Payslip
         public void PrintPayDetails () {
             Console.WriteLine(
                 "Your payslip has been generated:\n" +
-                "Name: " + _name + "\n" +
-                "Pay Period: " + _payPeriod + "\n" +
+                "Name: " + Name + "\n" +
+                "Pay Period: " + PayPeriod + "\n" +
                 "Gross Income: " + _grossIncome + "\n" +
                 "Income Tax: " + _incomeTax + "\n" +
                 "Net Income: " + _netIncome + "\n" +
